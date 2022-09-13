@@ -1,0 +1,456 @@
+ <div class="row" data-bind="visible: panelPdf()">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading tab-bg-dark-navy-blue ">
+                    <ul id="tab_aplicant" class="nav nav-tabs">
+                        <li class="">
+                            <a data-toggle="tab" id="click1" href="#1" aria-expanded="false">Employee Letter</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" id="click2" href="#2" aria-expanded="false">Family Data</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" id="click3" href="#3" aria-expanded="false">Education Data</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" id="click4" href="#4" aria-expanded="false">Foreign Language Skills</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" id="click5" href="#5" aria-expanded="false">Question</a>
+                        </li>
+                    </ul>
+                </header>
+                <div class="panel-body">
+                    <form id="recruitmentForm" class="tab-content" data-role="validator" novalidate="novalidate">
+                        <div id="1" class="tab-pane">
+                            <div class="row">
+                                <div class="col-md-12" style="text-align: right; padding-bottom: 15px;">
+                                    <a data-toggle="tab" href="#2" class="btn btn-sm btn-info" data-bind="click:fd"><i class="fa fa-angle-double-right"></i> Next</a>
+                                    <button class="btn btn-sm btn-danger" data-bind="click:cancelNew">Cancel</button>
+                                </div>
+                                <div class="col-md-3">
+                                    <!-- <div class="form">
+                                        <div class="form-group">
+                                            <label>ID</label>
+                                            <input class="form-control" disabled type="text" name="id" id="_id">
+                                        </div>
+                                    </div> -->
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label>ID Number/ KTP</label>
+                                            <input class="form-control" type="text" name="ktp" id="ktp" data-bind="value:profile.ktp">
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label>Full Name</label>
+                                            <input class="form-control" type="text" name="fullname" id="fullname" data-bind="value:profile.fullname" required="required" validationMessage="Full Name is required">
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label>Date of Birth</label>
+                                            <input class="form-control" type="text" name="dob" id="dob" data-bind="value:profile.dob">
+                                            <span data-for="dob" class="k-invalid-msg"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label>Religion</label>
+                                            <select class="form-control" data-bind="value: profile.religion" name="religion">
+                                                <option value="" disabled selected style="display: none;">Select religion...</option>
+                                                <option value="Islam" id="">Islam</option>
+                                                <option value="Kristen" id="">Kristen</option>
+                                                <option value="Katolik" id="">Katolik</option>
+                                                <option value="Hindu" id="">Hindu</option>
+                                                <option value="Budha" id="">Budha</option>
+                                                <option value="Konghuchu" id="">Konghuchu</option>
+                                            </select>
+                                            <span data-for="religion" class="k-invalid-msg"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label>Bank Account</label>
+                                            <input class="form-control" type="text" name="bank" id="bank" data-bind="value:profile.bankacc" validationMessage="Bank Name is required">
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label>Number Account</label>
+                                            <input class="form-control" type="text" name="numberbank" id="numberbank" data-bind="value:profile.bankno" validationMessage="Bank Number Account is required">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label>Gender</label>
+                                                <div class="radio" style="padding-bottom:3px;">
+                                                    <label class="checkbox-inline">
+                                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="M" checked="" data-bind="checked:profile.gender">
+                                                      Man
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="W" checked="" data-bind="checked:profile.gender">
+                                                      Women
+                                                    </label>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select class="form-control" data-bind="value: profile.marital_status" name="status" data-required-msg="Select Status">
+                                                <option value="" disabled selected style="display: none;">Select status...</option>
+                                                <option value="Single" id="single">Single</option>
+                                                <option value="Married" id="married">Married</option>
+                                                <option value="Widow" id="widow">Widow</option>
+                                                <option value="Widower" id="widower">Widower</option>
+                                            </select>
+                                            <span data-for="status" class="k-invalid-msg"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form">
+                                                <div class="form-group">
+                                                    <label>Height</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control" type="text" name="height" id="height" data-bind="value:profile.height" data-required-msg="Required">
+                                                        <span class="input-group-addon">Cm.</span>
+                                                    </div>
+                                                    <span data-for="height" class="k-invalid-msg"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form">
+                                                <div class="form-group">
+                                                    <label>Weight</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control" type="text" name="weight" id="weight" data-bind="value:profile.weight" data-required-msg="Required">
+                                                        <span class="input-group-addon">Kg.</span>
+                                                    </div>
+                                                    <span data-for="weight" class="k-invalid-msg"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label>Phone number</label>
+                                            <input class="form-control" type="text" name="phone" id="phone" data-bind="value:profile.phone" required data-required-msg="Phone is required">
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input class="form-control" type="email" name="email" id="email" data-bind="value:profile.email" required data-required-msg="Email is required">
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label>Blood Type</label>
+                                            <select class="form-control" data-bind="value: profile.blood" name="blood" data-required-msg="Select Blood">
+                                                <option value="" disabled selected style="display: none;">Select blood...</option>
+                                                <option value="O" id="">O</option>
+                                                <option value="A" id="">A</option>
+                                                <option value="B" id="">B</option>
+                                                <option value="AB" id="">AB</option>
+                                            </select>
+                                            <span data-for="blood" class="k-invalid-msg"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label>Residence Status</label>
+                                            <input class="form-control" type="text" name="residence" id="residence" data-bind="value: profile.residence" data-required-msg="Residence is required">
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label>Address</label>
+                                            <textarea class="form-control" type="text" name="adress" data-bind="value:profile.address" data-required-msg="Address is required"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="fileinput-new thumbnail" style="margin-top:20px;">
+                                            <img style="" id="img-ex" src="/static/img/no-image.png" alt="...">
+                                        </div>
+                                        <div class="fileContainer btn btn-sm btn-default"><i class="fa fa-camera"></i> Select Image
+                                            <input type="file" id='getval' name="background-image" onchange="readURL(event)" accept="image/x-png, image/gif, image/jpeg">
+                                        </div>
+                                        <button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="2" class="tab-pane">
+                            <div class="row">
+                                <div class="col-md-12" style="text-align: right; padding-bottom: 15px;">
+                                    <a data-toggle="tab" href="#1" class="btn btn-sm btn-info" data-bind="click:el"><i class="fa fa-angle-double-left"></i> Back</a>
+                                    <a data-toggle="tab" href="#3" class="btn btn-sm btn-info" data-bind="click:ed"><i class="fa fa-angle-double-right"></i> Next</a>
+                                    <button class="btn btn-sm btn-danger" data-bind="click:cancelNew">Cancel</button>
+                                </div>
+                                <div class="col-md-6 form-horizontal">
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label class="col-md-3">Father</label>
+                                            <div class="col-md-9">
+                                                <input class="form-control" type="text" name="father" id="father" data-bind="value:profile.father" data-required-msg="Father Name is required">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label class="col-md-3">Mother</label>
+                                            <div class="col-md-9">
+                                                <input class="form-control" type="text" name="mother" id="mother" data-bind="value:profile.mother" data-required-msg="Mother Name is required">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form" style="text-align: right; padding-bottom: 15px;">
+                                        <button class="btn btn-xs btn-success" data-bind="click: addChild">Add Child</button>
+                                    </div>
+                                    <div class="form" data-bind="foreach:child">
+                                        <div class="form-group">
+                                            <label class="col-md-3">Child <span data-bind="text: ($index()+1)"></span></label>
+                                            <div class="col-md-7">
+                                                <input class="form-control" data-bind="value: profile.child()[$index()].childname,attr:{'id':'child_'+$index()}"/>
+                                            </div>
+                                            <div class="col-md-2" data-bind="visible: $index()>0">
+                                                <button class="btn btn-sm btn-danger" data-bind="click: profile.removeChild"><i class="fa fa-times"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-6 form-horizontal">
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label class="col-md-3">Housband/ Wife</label>
+                                            <div class="col-md-9">
+                                                <input class="form-control" type="text" name="housband" id="housband" data-bind="value: profile.housband">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form" style="text-align: right; padding-bottom: 15px;">
+                                        <button class="btn btn-xs btn-success" data-bind="click: addChildr">Add Child</button>
+                                    </div>
+                                    <div class="form" data-bind="foreach:childr">
+                                        <div class="form-group">
+                                            <label class="col-md-3">Child <span data-bind="text: ($index()+1)"></span></label>
+                                            <div class="col-md-7">
+                                                <input class="form-control" data-bind="value: profile.childr()[$index()].childrname"/>
+                                            </div>
+                                            <div class="col-md-2" data-bind="visible: $index()>0">
+                                                <button class="btn btn-sm btn-danger" data-bind="click: profile.removeChildr"><i class="fa fa-times"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="3" class="tab-pane">
+                            <div class="row">
+                                <div class="col-md-12" style="text-align: right; padding-bottom: 15px;">
+                                    <a data-toggle="tab" href="#2" class="btn btn-sm btn-info" data-bind="click:fd"><i class="fa fa-angle-double-left"></i> Back</a>
+                                    <a data-toggle="tab" href="#4" class="btn btn-sm btn-info" data-bind="click:fls"><i class="fa fa-angle-double-right"></i> Next</a>
+                                    <button class="btn btn-sm btn-danger" data-bind="click:cancelNew">Cancel</button>
+                                </div>
+                                <div class="col-md-12">
+                                    <table id="education" class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="6" style="text-align: right;">
+                                                    <button class="btn btn-sm btn-success" data-bind="click: addEdu">Add Education</button>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Education</th>
+                                                <th>Name</th>
+                                                <th>Start Year</th>
+                                                <th>End Year</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-bind="foreach:edu">
+                                            <tr>
+                                                <td><b><span data-bind="text: ($index()+1)"></span></b></td>
+                                                <td>
+                                                    <input name="education" class="form-control" data-bind="value:profile.edu()[$index()].Level, attr:{'id':'education_'+$index(), 'name':'education_'+$index()}" data-required-msg="Education is required">
+                                                    <span data-bind="attr:{'data-for':'education_'+$index()}" class="k-invalid-msg"></span>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" name="nameedu" data-bind="value:profile.edu()[$index()].Name, attr:{'id':'name_'+$index(), 'name':'name_'+$index()}" data-required-msg="Name Education is required">
+                                                    <span data-bind="attr:{'data-for':'name_'+$index()}" class="k-invalid-msg"></span>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" id="startdate" data-bind="value:profile.edu()[$index()].Start, attr:{'id':'startdate_'+$index(), 'name':'startdate_'+$index()}" data-required-msg="Start Year is required">
+                                                    <span data-bind="attr:{'data-for':'startdate_'+$index()}" class="k-invalid-msg"></span>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" id="enddate" name="enddate" data-bind="value:profile.edu()[$index()].End, attr:{'id':'enddate_'+$index(), 'name':'enddate_'+$index()}" data-required-msg="End Year is required">
+                                                    <span data-bind="attr:{'data-for':'enddate_'+$index()}" class="k-invalid-msg"></span>
+                                                    <!-- <select class="form-control" required name="status" data-required-msg="End Year is required">
+                                                        <option value="" disabled selected style="display: none;">Select End Year...</option>
+                                                        <option value="Single" id="single">Single</option>
+                                                    </select> -->
+                                                </td>
+                                                <td style="text-align: center;"><button class="btn btn-sm btn-danger" data-bind="visible: $index()>0, click: profile.removeEdu"><i class="fa fa-times"></i></button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="4" class="tab-pane">
+                            <div class="row">
+                                <div class="col-md-12" style="text-align: right; padding-bottom: 15px;">
+                                    <a data-toggle="tab" href="#3" class="btn btn-sm btn-info" data-bind="click:ed"><i class="fa fa-angle-double-left"></i> Back</a>
+                                    <a data-toggle="tab" href="#5" class="btn btn-sm btn-info" data-bind="click:ques"><i class="fa fa-angle-double-right"></i> Next</a>
+                                    <button class="btn btn-sm btn-danger" data-bind="click:cancelNew">Cancel</button>
+                                </div>
+                                <div class="col-md-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="6" style="text-align:right;">
+                                                    <button class="btn btn-sm btn-success" data-bind="click:addLang">Add Language</button>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Language</th>
+                                                <th>Write</th>
+                                                <th>Read</th>
+                                                <th>Speaking</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-bind="foreach: lang">
+                                            <tr>
+                                                <td><b><span data-bind="text: ($index()+1)"></span></b></td>
+                                                <td>
+                                                    <input class="form-control" type="" name="" data-bind="value: profile.lang()[$index()].Language, attr:{'name':'name_'+$index()}" data-required-msg="Language is required">
+                                                    <span data-bind="attr:{'data-for':'name_'+$index()}" class="k-invalid-msg"></span>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" value="agung" data-bind="value: profile.lang()[$index()].Write, attr:{'name':'write_'+$index()}" data-required-msg="Write is required">
+                                                        <option id="langop" value="">Select Option...</option>
+                                                        <option id="langop" value="active">Active</option>
+                                                        <option id="langop" value="passive">Passive</option>
+                                                    </select>
+                                                    <span data-bind="attr:{'data-for':'write_'+$index()}" class="k-invalid-msg"></span>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" data-bind="value: profile.lang()[$index()].Read, attr:{'name':'read_'+$index()}" data-required-msg="Read is required">
+                                                        <option id="" value="">Select Option...</option>
+                                                        <option id="">Active</option>
+                                                        <option id="">Passive</option>
+                                                    </select>
+                                                    <span data-bind="attr:{'data-for':'read_'+$index()}" class="k-invalid-msg"></span>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" data-bind="value: profile.lang()[$index()].Speaking, attr:{'name':'speaking_'+$index()}" data-required-msg="Write is required">
+                                                        <option id="" value="">Select Option...</option>
+                                                        <option id="">Active</option>
+                                                        <option id="">Passive</option>
+                                                    </select>
+                                                    <span data-bind="attr:{'data-for':'speaking_'+$index()}" class="k-invalid-msg"></span>
+                                                </td>
+                                                <td style="text-align: center;"><button class="btn btn-sm btn-danger" data-bind="visible: $index()>0, click: profile.removeLang"><i class="fa fa-times"></i></button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row work-history">
+                                <div class="col-md-12" style="text-align: right;">
+                                    <button class="btn btn-sm btn-success" data-bind="click:addWork">Add Work History</button>
+                                </div>
+                                <div id="historyWork">
+                                    <div class="col-md-12" data-bind="foreach:work">
+                                        <div class="panel-body" style="background: #f1f2f7;border-radius: 3px;margin-top: 20px;">
+                                            <div class="row col-md-12">
+                                                <div class="col-md-6" style="text-align: left;">
+                                                    <h3 style="margin-top:0px;">Job Experience <span data-bind="text: ($index()+1)"></span></h3>
+                                                </div>
+                                                <div class="col-md-6" style="text-align: right;">
+                                                    <button style="margin-right:-30px;" class="btn btn-sm btn-danger" data-bind="visible: $index()>0, click: profile.removeWork"><i class="fa fa-times"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Company Name</label>
+                                                    <input class="form-control" id="company" type="text" placeholder="" data-bind="value:profile.work()[$index()].Company_name, attr:{'name':'company_'+$index()}" data-required-msg="Company is required">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Employee Count</label>
+                                                    <input class="form-control" id="ec" type="text" placeholder="" data-bind="value: profile.work()[$index()].Employee_count, attr:{'name':'ec_'+$index()}" data-required-msg="Employee Count is required">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Start</label>
+                                                    <input class="form-control" type="text" data-bind="value:profile.work()[$index()].Start, attr:{'id':'startdatework_'+$index(), 'name':'workstart_'+$index()}" data-required-msg="Work Start is required">
+                                                    <span data-bind="attr:{'data-for':'workstart_'+$index()}" class="k-invalid-msg"></span>
+
+                                                </div>                                                    
+                                                <div class="form-group">
+                                                    <label>Resign Reason</label>
+                                                    <input class="form-control" id="rs" type="text" placeholder="" data-bind="value:profile.work()[$index()].Resign_reason, attr:{'name':'resignreason_'+$index()}" data-required-msg="Resign Reason is required">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>End</label>
+                                                    <input class="form-control" id="workend" type="text" data-bind="value:profile.work()[$index()].End, attr:{'id':'enddatework_'+$index(), 'name':'workend_'+$index()}" data-required-msg="Work End is required">
+                                                    <span data-bind="attr:{'data-for':'workend_'+$index()}" class="k-invalid-msg"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Salary</label>
+                                                    <input class="form-control" id="salary" type="text" placeholder="" data-bind="value:profile.work()[$index()].Salary, attr:{'name':'salary_'+$index()}" data-required-msg="Salary is required">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="5" class="tab-pane">
+                            <div class="row">
+                                <div class="col-md-12" style="text-align: right; padding-bottom: 15px;">
+                                    <a data-toggle="tab" href="#4" class="btn btn-sm btn-info" data-bind="click:fls"><i class="fa fa-angle-double-left"></i> Back</a>
+                                    <button class="btn btn-sm btn-danger" data-bind="click:cancelNew">Cancel</button>
+                                    <button class="btn btn-sm btn-success" data-bind="click:profile.saveData, visible: (profile.add() == true)">Process All Data</button>
+                                    <button class="btn btn-sm btn-success" data-bind="click:profile.saveDataUpdate, visible:(profile.add() != true)">Update All Data</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Why you want join to EACIIT</label>
+                                        <textarea id="" name="why" class="form-control" data-bind="value:profile.join" data-required-msg="Why you want is required"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Name family or Friends is working in EACIIT</label>
+                                        <textarea id="" name="friends" class="form-control" data-bind="value:profile.fams" data-required-msg="Name family is required"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>When can start working on EACIIT</label>
+                                        <textarea id="" name="whencan" class="form-control" data-bind="value:profile.startwork" data-required-msg="When can start is required"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
